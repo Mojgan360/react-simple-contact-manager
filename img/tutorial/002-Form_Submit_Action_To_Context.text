@@ -1,0 +1,79 @@
+7- 
+1- gå till context.js
+2- skapa en annan case för reducer metod
+3- ändra type: "ADD-CONTACT"
+4- ...state, Är prevent state
+5- vi behover en nyL list av contacts: contacts
+6- vi addera en new object to vår array
+7- contacta : [action.payload, ....state.contacts]
+8- det betyder att en ny contatct som heter action.payload, addera på första plats av vår gamla contacts list
+9- nu addera en ny contatct som har: 
+name,email och phone = (action.playload)
+**********
+AddContact.js:
+---------------
+nu måste koppla despatch från context.js till AddContact.js
+1- import {consumer} to AddContext
+2- förändra :
+--------
+ return(
+ <Consumer>
+ {value => {
+ const {dispatch} = value
+ return{
+ *****code*****
+ }
+ }}
+ </Consumer>
+)
+-----------
+ const {dispatch} = value // metod distpach anropa
+ _____________
+ 10-
+ vi har redan event onSubmit i element form
+  <form onSubmit={this.onSubmitHandler}>
+  så här förändras för att använder  {dispatch} i event onSubmit med bind():
+  <form onSubmit={this.onSubmitHandler.bind(this, dispatch)}>
+ ----------
+11- install uuod() -> i terminal: npm install uuid
+12- import: import uuid from 'uuid' i Contect.js
+-----------------
+13- förändra 
+onSubmitHandler = e => {
+    e.preventDefault();
+  
+  };
+-----> till:
+
+  onSubmitHandler = (dispatch, e) => {
+    e.preventDefault();
+    const { name, email, phone } = this.state;
+    const newContact = {
+      id: uuid(),
+      name,
+      email,
+      phone
+    };
+    //call dispatch
+    dispatch({type: 'ADD_CONTECT', payload: newContact});
+  };
+  -------------------------------------
+- för att clear input
+- AddContact.js
+-------------------
+- i metod onChangeHandler() addera ->
+this.setState({
+      name: "",
+      email: "",
+      phone: ""
+    });
+
+
+
+
+
+
+
+
+
+

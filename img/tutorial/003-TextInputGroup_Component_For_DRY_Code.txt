@@ -1,0 +1,55 @@
+
+TextInputGroup_Component_For_DRY_Code.txt
+--------------------
+1- skapa i layout en ny file: TextInputGroup.js
+*****************
+TextInputGroup.js
+-----------------
+2- rfc: skapa function
+3- impt : skapa propType: import PropTypes from 'prop-types';
+4- byt pure func: function TextInputGroup() {
+	till array func. : const TextInputGroup = () => {
+------------------
+5- 
+const TextInputGroup = ({
+    label,
+    name,
+    value,
+    placeholder,
+    onChange
+}) => {
+-------------------------
+i return pased en form group av AddContact.js
+<div className="form-group">
+      <label htmlFor="email">{label}</label>
+      <input
+        type={type}
+        name={name}
+        className="form-control form-control-lg"
+        placeholder={placeholde}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
+    -----------eller------
+const TextInputGroup = ({props})
+=>...................>
+ type={.props.type}
+ --------------------------------
+ 6- fixa propTypes för att props
+
+ AddContact.js
+ -------------
+ 7- import TextInputGroup:  
+ import TextInputGroup from "../layout/TextInputGroup";
+
+ 
+
+
+
+
+
+
+
+  
+

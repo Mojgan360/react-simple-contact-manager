@@ -1,0 +1,44 @@
+007-POST_DELETE Requests.txt
+************************************************
+Contact.js
+**********
+import axios from 'axios'
+ onDeleteClick = (id, dispatch) => {
+    dispatch({ type: "DELETE-CONTACT", payload: id });
+  };
+*************************************************  
+onDeleteClick = (id, dispatch) => {
+    axios
+      .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then(res => dispatch({ type: "DELETE-CONTACT", payload: id }));
+  };
+**********************************
+AddContact.js
+************
+1- import axios from "axios";
+2. delete (  id: uuid(),), föratt list om anråpa från server har redan id
+
+---------------
+Add=> POST
+från:
+    dispatch({ type: "ADD-CONTACT", payload: newContact });
+    ----------------------------
+till:
+axios
+      .post("https://jsonplaceholder.typicode.com/users", newContact)
+      .then(res => dispatch({ type: "ADD-CONTACT", payload: res.data }));
+****************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+

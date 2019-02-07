@@ -1,0 +1,13 @@
+1- skapa: static defaultProps
+2- ändra value till defaultValue
+3- skapa: ref={this.phoneInput}
+4-skapa constructor
+5-add till costroctor:--> this.nameInput = React.createRef();
+6- onSubmit function, skapa en object av contact
+6- access to value:  --> name : this.nameInput.current.value
+const contact = {
+      name: this.nameInput.current.value,
+      email: this.emailInput.current.value,
+      phone: this.phoneInput.current.value
+    };
+7-

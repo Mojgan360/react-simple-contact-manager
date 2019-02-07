@@ -1,0 +1,73 @@
+1 - 005-React_Router_Setup.txt
+---------------------------------
+1- i terminal: npm i react-router-dom
+2- import to App.js -->
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+-----------------------------------
+3-  <Provider>
+        <Router>
+         ....code ....
+        </Router>
+      </Provider>
+-----------------------------------   
+4-   <Provider>
+        <Router>
+          <div className="myApp">
+            <Header branding="Contact Manager" />
+            <div className="container">
+              <Switch>
+
+                <Route exact path="/" component={AddContact} /> */}
+                <Route exact path="/about" component={About} />
+
+              </Switch>
+            </div>
+          </div>
+        </Router>
+      </Provider>   
+*************************Links, Params _ Redirects***************
+1-gå to Header.js
+2- add: 
+import { Link } from "react-router-dom";
+---------------------------------------
+3- från:
+<a href="/" className="nav-link"> Home </a>
+
+till:
+ <Link to="/contact/add" className="nav-link"> Add </Link>
+
+add Icon: 
+<li className="nav-item">
+            <Link to="/contact/add" className="nav-link">
+              <i className="fas fa-plus" /> Add
+            </Link>
+          </li>
+---------------------------------------------------          
+AddContact.js
+-------------
+in onSubmit:
+//gå till andra sidan-> home
+    this.props.history.push("/");
+-------------------------------   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

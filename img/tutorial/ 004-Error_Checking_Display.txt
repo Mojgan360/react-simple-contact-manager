@@ -1,0 +1,61 @@
+ 004-Error_Checking_Display.txt
+ *****************************************
+ AddContact.js
+ -------------
+ 1- i state skapa ny object: errors:{} som är tom
+ 2- onsubmit():
+ if (name === "") {
+      this.setState({ errors: { name: "Name is required" } });
+      return;
+    }
+--------------------------------
+add errors: {} in clear state    
+add to rebde:     
+const { name, email, phone, errors } = this.state;
+--------------------------------
+add to : <TextInputGroup
+                    lable="Email"
+                    name="email"
+                    type="email"
+                    placeholder="Enter email ..."
+                    value={email}
+                    onChange={this.onChangeHandler}
+                     error={errors.email}
+                  />
+------------------------------------------------------------
+TextInputGroup.js
+1: change :         
+className="is-invalid form-control form-control-lg"
+
+2: add erroe to:
+const TextInputGroup = ({
+ .....
+  onChange,
+  error
+  ------------------------------------------------------------
+  3-      <div className="invalid-feedback">This is wrong</div>
+---------------------------------------------------
+
+4- i terminal: npm i classnames
+
+5- TextInputGroup.js
+----------------------
+6- import classnames from 'classnames';
+
+7- förändra:
+   className="is-invalid form-control form-control-lg"
+till:
+    className={ classnames( '  ' , { }  ) }
+     className={classnames('form-control form-control-lg', {'is-invallid' : error })}
+--------------------------
+   från:
+    {error && <div className="invalid-feedback">This is wrong</div>
+ }
+ till: 
+     {error &&<div className="invalid-feedback">{error}</div>}
+-------------------------------------------------------
+     
+
+
+
+
